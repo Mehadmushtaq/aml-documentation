@@ -1,0 +1,138 @@
+{
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "integer",
+      "description": "Auto generated system reference"
+    },
+    "external_reference": {
+      "type": "string"
+    },
+    "other_reference": {
+      "type": "string"
+    },
+    "type_one": {
+      "type": "string",
+      "description": "Property type (main).\nSee [Get property types](/api/lookups#available-property-types) for the list of available property types.\n"
+    },
+    "type_two": {
+      "type": "string",
+      "description": "Property type (secondary).\nSee [Get property types](/api/lookups#available-property-types) for the list of available property types.\n"
+    },
+    "transaction_type": {
+      "type": "string",
+      "description": "Type of transaction",
+      "enum": [
+        "sale",
+        "rent"
+      ]
+    },
+    "currency": {
+      "type": "string",
+      "enum": [
+        "EUR",
+        "GBP",
+        "USD",
+        "AED",
+        "JPY",
+        "TRY",
+        "RON",
+        "IDR"
+      ]
+    },
+    "current_price": {
+      "type": "integer"
+    },
+    "property_state": {
+      "type": "string",
+      "description": "State of property",
+      "enum": [
+        "new",
+        "resale_without_renovation",
+        "resale_with_renovation",
+        "build",
+        "teardown_to_build"
+      ]
+    },
+    "year_built": {
+      "type": "integer",
+      "example": 2025
+    },
+    "google_address": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "description": "See [Get Countries](/api/lookups#available-countries) for the list of available countries"
+    },
+    "region": {
+      "type": "string",
+      "description": "See [Get Regions](/api/lookups#available-regions) for the list of available regions"
+    },
+    "province": {
+      "type": "string",
+      "description": "See [Get Provinces](/api/lookups#available-provinces) for the list of available provinces"
+    },
+    "city": {
+      "type": "string",
+      "description": "See [Get Cities](/api/lookups#available-cities) for the list of available cities"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "address_road_type": {
+      "type": "string",
+      "description": "Street Type",
+      "enum": [
+        "street",
+        "avenue",
+        "road",
+        "alley"
+      ]
+    },
+    "address_street": {
+      "type": "string",
+      "description": "Street name"
+    },
+    "address_street_nr": {
+      "type": "string",
+      "description": "Street number"
+    },
+    "address_portal": {
+      "type": "string",
+      "description": "Portal"
+    },
+    "address_floor": {
+      "type": "string",
+      "description": "Floor"
+    },
+    "address_door_nr": {
+      "type": "string",
+      "description": "Door number"
+    },
+    "po_box": {
+      "type": "string",
+      "description": "P.O. Box"
+    },
+    "latitude": {
+      "type": "integer"
+    },
+    "longitude": {
+      "type": "integer"
+    },
+    "property_register": {
+      "type": "string"
+    },
+    "occupation_license": {
+      "type": "boolean"
+    },
+    "idu_cru": {
+      "type": "string",
+      "description": "unique, 14-digit codes that identify a specific property within Spain's Land Registry (provide only when country is spain)"
+    },
+    "finca_number": {
+      "type": "string",
+      "description": "official unique registration number assigned to a property (provide only when country is spain)"
+    }
+  }
+}

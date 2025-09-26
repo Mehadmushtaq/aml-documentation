@@ -1,0 +1,268 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "integer",
+      "description": "Auto generated system reference"
+    },
+    "client_type": {
+      "type": "string",
+      "enum": [
+        "Buyer",
+        "Seller",
+        "Buyer + Seller",
+        "Other",
+        "Lessor",
+        "Tenant",
+        "Seller + Lessor"
+      ]
+    },
+    "client_type_other": {
+      "type": "string",
+      "description": "Other client type (if client_type is 'Other')"
+    },
+    "type": {
+      "type": "string",
+      "description": "Person type",
+      "enum": ["legal", "natural"]
+    },
+    "client_status": {
+      "type": "string",
+      "enum": ["Active", "Inactive"]
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string",
+      "enum": ["Male", "Female"]
+    },
+    "dob": {
+      "type": "string",
+      "description": "Date of birth. Format YYYY MM DD or YYYY/MM/DD"
+    },
+    "place_of_birth": {
+      "type": "string"
+    },
+    "primary_nationality": {
+      "type": "string",
+      "description": "Nationality (main).\nSee [Get nationalties](/api/lookups#available-nationalities) for the list of available nationalities.\n"
+    },
+    "secondary_nationality": {
+      "type": "string",
+      "description": "Nationality (additional).\nSee [Get nationalties](/api/lookups#available-nationalities) for the list of available nationalities.\n"
+    },
+    "citizenship": {
+      "type": "string",
+      "description": "See [Get Countries](/api/lookups#available-countries) for the list of available countries.\n"
+    },
+    "id_type": {
+      "type": "string",
+      "enum": ["EU ID", "Passport"]
+    },
+    "id_issuer": {
+      "type": "string"
+    },
+    "id_number": {
+      "type": "string"
+    },
+    "id_expiration_date": {
+      "type": "string",
+      "description": "ID expiration date. Format YYYY MM DD or YYYY/MM/DD"
+    },
+    "country_permanent_residence": {
+      "type": "string",
+      "description": "Country of permanent residence. See [Get Countries](/api/lookups#available-countries) for the list of available countries."
+    },
+    "id_permanent_residence": {
+      "type": "string",
+      "description": "ID for country of permanent residence"
+    },
+    "permanent_residence_registration_date": {
+      "type": "string",
+      "description": "Registration date for country of permanent residence. Format YYYY MM DD or YYYY/MM/DD"
+    },
+    "country_temporary_residence": {
+      "type": "string",
+      "description": "Country of temporary residence. See [Get Countries](/api/lookups#available-countries) for the list of available countries"
+    },
+    "id_temporary_residence": {
+      "type": "string",
+      "description": "ID for country of temporary residence"
+    },
+    "employment": {
+      "type": "string",
+      "description": "Employment status",
+      "enum": ["Employer", "Self employed", "Unemployed", "Retired"]
+    },
+    "tax_id_natural": {
+      "type": "string",
+      "description": "Personal tax ID"
+    },
+    "tax_id_legal": {
+      "type": "string",
+      "description": "Business tax ID"
+    },
+    "pep": {
+      "type": "string",
+      "description": "Politically Exposed Person",
+      "enum": ["Yes", "No", "Unknown"]
+    },
+    "political_exposure": {
+      "type": "string",
+      "description": "Description of political exposure (if pep is 'Yes')"
+    },
+    "ultimate_beneficial_owner": {
+      "type": "string",
+      "description": "Ultimate Beneficial Owner",
+      "enum": ["Yes", "No", "Unknown"]
+    },
+    "primary_language": {
+      "type": "string",
+      "description": "AML system language key. See [Get Languages](/api/lookups#available-languages) for the list of available languages"
+    },
+    "secondary_language": {
+      "type": "string",
+      "description": "AML system language key. See [Get Languages](/api/lookups#available-languages) for the list of available languages"
+    },
+    "relationship_status": {
+      "type": "string",
+      "enum": ["Active", "Frozen", "Inactive"]
+    },
+    "represented_by": {
+      "type": "string",
+      "description": "AML system client ID"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Responsible. AML system user's username"
+    },
+    "email": {
+      "type": "string"
+    },
+    "mobile_country": {
+      "type": "string",
+      "description": "Mobile country code (e.g., +34)"
+    },
+    "mobile_number": {
+      "type": "string",
+      "description": "Mobile number without country code"
+    },
+    "google_address": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country of residence. See [Get Countries](/api/lookups#available-countries) for the list of available countries."
+    },
+    "residence_region": {
+      "type": "string",
+      "description": "Region of residence. See [Get Regions](/api/lookups#available-regions) for the list of available regions."
+    },
+    "residence_province": {
+      "type": "string",
+      "description": "Province of residence. See [Get Provinces](/api/lookups#available-provinces) for the list of available provinces."
+    },
+    "residence_city": {
+      "type": "string",
+      "description": "City of residence. See [Get Cities](/api/lookups#available-cities) for the list of available cities."
+    },
+    "residence_postal_code": {
+      "type": "string"
+    },
+    "address_road_type": {
+      "type": "string",
+      "description": "Street Type",
+      "enum": ["street", "avenue", "road", "alley"]
+    },
+    "address_street": {
+      "type": "string",
+      "description": "Street name"
+    },
+    "address_street_nr": {
+      "type": "string",
+      "description": "Street number"
+    },
+    "address_portal": {
+      "type": "string",
+      "description": "Portal"
+    },
+    "address_floor": {
+      "type": "string",
+      "description": "Floor"
+    },
+    "address_door_nr": {
+      "type": "string",
+      "description": "Door number"
+    },
+    "po_box": {
+      "type": "string",
+      "description": "P.O. Box"
+    },
+    "latitude": {
+      "type": "integer"
+    },
+    "longitude": {
+      "type": "integer"
+    },
+    "main_head_address_same": {
+      "type": "boolean",
+      "description": "Is address of main activity is same"
+    },
+    "google_address_main_activity": {
+      "type": "string",
+      "description": "Google address - Main activity"
+    },
+    "main_activity_country": {
+      "type": "string",
+      "description": "Country - Main activity. See [Get Countries](/api/lookups#available-countries) for the list of available countries."
+    },
+    "main_activity_region": {
+      "type": "string",
+      "description": "Region - Main activity. See [Get Regions](/api/lookups#available-regions) for the list of available regions."
+    },
+    "main_activity_province": {
+      "type": "string",
+      "description": "Province - Main activity. See [Get Provinces](/api/lookups#available-provinces) for the list of available provinces."
+    },
+    "main_activity_city": {
+      "type": "string",
+      "description": "City - Main activity. See [Get Cities](/api/lookups#available-cities) for the list of available cities."
+    },
+    "main_activity_postal_code": {
+      "type": "string",
+      "description": "Postal code - Main activity"
+    },
+    "main_activity_address_road_type": {
+      "type": "string",
+      "description": "Road type - Main activity"
+    },
+    "main_activity_address_street": {
+      "type": "string",
+      "description": "Street name - Main activity"
+    },
+    "main_activity_address_street_nr": {
+      "type": "string",
+      "description": "Street number - Main activity"
+    },
+    "main_activity_address_portal": {
+      "type": "string",
+      "description": "Portal - Main activity"
+    },
+    "main_activity_address_floor": {
+      "type": "string",
+      "description": "Floor - Main activity"
+    },
+    "main_activity_address_door_nr": {
+      "type": "string",
+      "description": "Door number - Main activity"
+    },
+    "main_activity_po_box": {
+      "type": "string",
+      "description": "P.O. Box - Main activity"
+    }
+  }
+}

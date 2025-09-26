@@ -1,0 +1,26 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "AML API documentation",
+    "version": "1.0.19"
+  },
+  "servers": [
+    {
+      "url": "http://localhost/dev1/ng-crm/yiiapp/backend/web"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Import",
+      "description": "CSV/XLS import"
+    }
+  ],
+  "paths": {
+    "$ref": "./paths/index.json"
+  },
+  "components": {
+    "schemas": {
+      "$ref": "./schemas/index.json"
+    }
+  }
+}

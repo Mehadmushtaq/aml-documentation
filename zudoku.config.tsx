@@ -1,12 +1,13 @@
 import type { ZudokuConfig } from "zudoku";
+// import { createApiIdentityPlugin } from "zudoku/plugins";
 
 const config: ZudokuConfig = {
   site: {
     logo: {
-      src: { light: "/logo-light.svg", dark: "/logo-dark.svg" },
+      src: { light: "/aml-icon.png", dark: "/aml-icon.png" },
       alt: "Zudoku",
       width: "130px",
-    },
+    }
   },
   navigation: [
     {
@@ -30,21 +31,7 @@ const config: ZudokuConfig = {
               to: "/api",
             },
           ],
-        },
-        {
-          type: "category",
-          label: "Useful Links",
-          collapsible: false,
-          icon: "link",
-          items: [
-            {
-              type: "link",
-              icon: "book",
-              label: "Zudoku Docs",
-              to: "https://zudoku.dev/docs/",
-            },
-          ],
-        },
+        }
       ],
     },
     {
@@ -57,10 +44,37 @@ const config: ZudokuConfig = {
   apis: [
     {
       type: "file",
-      input: "./apis/openapi.yaml",
+      input: "./apis/openapi.json",
+      // input: "./apis/openapi.yaml",
+      // input: "./apis/openapi_bk.yaml",
+      // input: "./apis/rickandmorty.openapi.json",
       path: "/api",
     },
   ],
+  // authentication: {
+  //   type: "auth0",
+  //   domain: "my-domain.auth0.com",
+  //   clientId: "my-client-id",
+  // },
+  // plugins: [
+  //   createApiIdentityPlugin({
+  //     getIdentities: async (context) => [
+  //       {
+  //         id: "api-key-one",
+  //         label: "My API Key",
+  //         authorizeRequest: (request) => {
+  //           // We get the access token from the
+  //           // authentication provider (Auth0) and add it to the request headers
+  //           const token = context.authentication?.getAccessToken();
+  //           if (token) {
+  //             request.headers.set("Authorization", `Bearer ${token}`);
+  //           }
+  //           return request;
+  //         },
+  //       },
+  //     ],
+  //   }),
+  // ],
 };
 
 export default config;

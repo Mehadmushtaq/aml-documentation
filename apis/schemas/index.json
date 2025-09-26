@@ -1,0 +1,11 @@
+{
+  "Property": {
+    "$ref": "./property.json"
+  },
+  "Client": {
+    "$ref": "./client.json"
+  },
+  "Dossier": {
+    "$ref": "./dossier.json"
+  }
+}
