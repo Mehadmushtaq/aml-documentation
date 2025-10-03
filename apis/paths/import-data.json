@@ -1,0 +1,76 @@
+{
+  "post": {
+    "tags": ["Import"],
+    "summary": "Import Data (CSV/XLS)",
+    "description": "API to import data of specific model.",
+    "requestBody": {
+      "required": true,
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "modelName": {
+                "type": "string",
+                "description": "Name of model whose data is going to be imported.<br>\nAccepted values: `'property', 'client', 'dossier'`\n"
+              },
+              "file": {
+                "type": "string",
+                "description": "Accepted formats: `'csv', 'xls', 'xlsx'`.<br>\n_Make sure file contains header and at least one row._\n"
+              }
+            },
+            "required": ["modelName", "file"]
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "X-Api-Key",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "The `X-Api-Key` header is used to authenticate with your API key."
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Successful import request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "estimated_time": {
+                  "type": "string",
+                  "description": "Estimated time to complete import"
+                },
+                "importId": {
+                  "type": "string",
+                  "description": "Unique ID to get import status"
+                }
+              },
+              "required": ["time", "importId"]
+            },
+            "examples": {
+              "sample": {
+                "value": {
+                  "estimated_time": "1.00 minute/s.",
+                  "importId": "68db7b72644ddf7b483d16b0"
+                }
+              }
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Unprocessable entity"
+      },
+      "500": {
+        "description": "Internal server error"
+      }
+    }
+  }
+}

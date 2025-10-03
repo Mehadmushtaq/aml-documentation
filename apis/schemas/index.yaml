@@ -1,6 +1,0 @@
-Property:
-  $ref: './property.yaml'
-Client:
-  $ref: './client.yaml'
-Dossier:
-  $ref: './dossier.yaml'

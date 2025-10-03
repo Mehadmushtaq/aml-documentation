@@ -1,0 +1,151 @@
+{
+  "get": {
+    "tags": ["Lookups"],
+    "summary": "Available nationalities",
+    "description": "Get list of available nationalities to be used in import file",
+    "parameters": [
+      {
+        "name": "X-Api-Key",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "The `X-Api-Key` header is used to authenticate with your API key."
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number"
+        },
+        "description": "Page number to return (pagination is 200) - Default : 1"
+      },
+      {
+        "name": "search",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Key to be searched with"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Successful operation",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "success": {
+                    "type": "boolean",
+                    "description": "Indicates if the request was successful"
+                  },
+                  "page": {
+                    "type": "integer",
+                    "description": "Current page number"
+                  },
+                  "pageSize": {
+                    "type": "integer",
+                    "description": "Number of records per page"
+                  },
+                  "totalRecords": {
+                    "type": "integer",
+                    "description": "Total number of records available"
+                  },
+                  "totalPages": {
+                    "type": "integer",
+                    "description": "Total number of pages available"
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "number",
+                          "description": "key of nationality"
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "name of nationality"
+                        }
+                      },
+                      "required": ["key", "value"]
+                    }
+                  }
+                },
+                "required": [
+                  "success",
+                  "page",
+                  "pageSize",
+                  "totalRecords",
+                  "totalPages",
+                  "data"
+                ]
+              }
+            },
+            "examples": {
+              "sample": {
+                "value": {
+                  "success": true,
+                  "page": 1,
+                  "pageSize": 200,
+                  "totalRecords": 241,
+                  "totalPages": 2,
+                  "data": [
+                    {
+                      "key": "AD",
+                      "value": "Andorran"
+                    },
+                    {
+                      "key": "AE",
+                      "value": "Emirian"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "Successful operation",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "success": {
+                    "type": "boolean"
+                  },
+                  "error": {
+                    "type": "string",
+                    "description": "error message"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "sample": {
+                "value": [
+                  {
+                    "success": false,
+                    "value": "Failed to retrieve nationalities"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

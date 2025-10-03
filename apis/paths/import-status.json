@@ -1,0 +1,123 @@
+{
+  "get": {
+    "tags": ["Import"],
+    "summary": "Check Import Status",
+    "description": "Check the progress and current state of an import by its ID.",
+    "parameters": [
+      {
+        "name": "X-Api-Key",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "The `X-Api-Key` header is used to authenticate with your API key."
+      },
+      {
+        "name": "importId",
+        "required": true,
+        "in": "query",
+        "description": "The ID of the import job",
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Successful import operation",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "description": "Indicates if the import request was successful"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "model": {
+                      "type": "string",
+                      "enum": ["commercial", "client", "dossier"]
+                    },
+                    "import_method": {
+                      "type": "string",
+                      "enum": ["file", "copy-paste"]
+                    },
+                    "file_name": {
+                      "type": "string",
+                      "description": "Name of file if import method is file"
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Number of total records"
+                    },
+                    "imported": {
+                      "type": "integer",
+                      "description": "Number of successfully imported records"
+                    },
+                    "failed": {
+                      "type": "integer",
+                      "description": "Number of failed records"
+                    },
+                    "skipped": {
+                      "type": "integer",
+                      "description": "Number of skipped records"
+                    },
+                    "invalid": {
+                      "type": "integer",
+                      "description": "Number of invalid mappings in a record"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Status of import",
+                      "enum": ["pending", "in-process", "completed", "failed"]
+                    }
+                  },
+                  "required": [
+                    "model",
+                    "import_method",
+                    "file_name",
+                    "total",
+                    "imported",
+                    "failed",
+                    "skipped",
+                    "invalid",
+                    "status"
+                  ]
+                }
+              },
+              "required": ["success", "data"]
+            },
+            "examples": {
+              "sample": {
+                "value": {
+                  "success": true,
+                  "data": {
+                    "model": "dossier",
+                    "import_method": "file",
+                    "file_name": "dossier_api_test_1.csv",
+                    "total": 1,
+                    "imported": 0,
+                    "failed": 0,
+                    "skipped": 0,
+                    "invalid": 0,
+                    "status": "pending"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Invalid ID supplied"
+      },
+      "404": {
+        "description": "Import log not found"
+      }
+    }
+  }
+}

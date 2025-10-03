@@ -6,13 +6,17 @@
   },
   "servers": [
     {
-      "url": "http://localhost/dev1/ng-crm/yiiapp/backend/web"
+      "url": "https://dev1.immosurance.net/yiiapp/backend/web"
     }
   ],
   "tags": [
     {
       "name": "Import",
       "description": "CSV/XLS import"
+    },
+    {
+      "name": "Lookups",
+      "description": "All Lookups are paginated (page size is 200)"
     }
   ],
   "paths": {
@@ -21,6 +25,18 @@
   "components": {
     "schemas": {
       "$ref": "./schemas/index.json"
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
 }

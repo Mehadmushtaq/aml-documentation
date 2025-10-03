@@ -22,23 +22,11 @@
     "transaction_type": {
       "type": "string",
       "description": "Type of transaction",
-      "enum": [
-        "sale",
-        "rent"
-      ]
+      "enum": ["sale", "rent"]
     },
     "currency": {
       "type": "string",
-      "enum": [
-        "EUR",
-        "GBP",
-        "USD",
-        "AED",
-        "JPY",
-        "TRY",
-        "RON",
-        "IDR"
-      ]
+      "enum": ["EUR", "GBP", "USD", "AED", "JPY", "TRY", "RON", "IDR"]
     },
     "current_price": {
       "type": "integer"
@@ -83,12 +71,7 @@
     "address_road_type": {
       "type": "string",
       "description": "Street Type",
-      "enum": [
-        "street",
-        "avenue",
-        "road",
-        "alley"
-      ]
+      "enum": ["street", "avenue", "road", "alley"]
     },
     "address_street": {
       "type": "string",

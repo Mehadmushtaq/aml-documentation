@@ -1,0 +1,52 @@
+{
+  "get": {
+    "tags": ["Import"],
+    "summary": "Download Import Logs (Errors/Warnings)",
+    "description": "Downloads a file containing warnings and errors encountered during the import process.",
+    "parameters": [
+      {
+        "name": "X-Api-Key",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "The `X-Api-Key` header is used to authenticate with your API key."
+      },
+      {
+        "name": "importId",
+        "in": "query",
+        "description": "The ID of the import job",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Successful operation - returns a CSV file",
+        "content": {
+          "!text/csv": {
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            },
+            "examples": {
+              "sample": {
+                "summary": "Example CSV",
+                "value": "row,status,'source field','AML field',message,time\n1,Invalid,commission_player,payer,'API tried to set unknown field `commission_player`',2025-09-30T06:40:50+00:00"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Missing/invalid import ID"
+      },
+      "404": {
+        "description": "Import log/file not found"
+      }
+    }
+  }
+}

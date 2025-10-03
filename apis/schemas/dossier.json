@@ -1,9 +1,13 @@
 {
   "type": "object",
   "properties": {
+    "dossier_id": {
+      "type": "integer",
+      "description": "Auto generated system reference"
+    },
     "property_id": {
       "type": "integer",
-      "description": "AML property ID"
+      "description": "AML (system) property ID, External or Other reference"
     },
     "date_contract": {
       "type": "string",
@@ -15,23 +19,14 @@
     },
     "dossier_status": {
       "type": "string",
-      "enum": [
-        "open",
-        "closed",
-        "cancelled"
-      ]
+      "enum": ["open", "closed", "cancelled"]
     },
     "dossier_description": {
       "type": "string"
     },
     "purpose": {
       "type": "string",
-      "enum": [
-        "Primary",
-        "Secondary",
-        "Investment",
-        "Other"
-      ]
+      "enum": ["Primary", "Secondary", "Investment", "Other"]
     },
     "other_purpose": {
       "type": "string",
@@ -79,13 +74,7 @@
     },
     "assigned_to": {
       "type": "integer",
-      "description": "AML user ID"
+      "description": "AML user ID/email"
     }
-  },
-  "required": [
-    "property_id",
-    "date_contract",
-    "clients",
-    "dossier_status"
-  ]
+  }
 }

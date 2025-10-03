@@ -1,0 +1,140 @@
+{
+  "get": {
+    "tags": ["Lookups"],
+    "summary": "Available cities",
+    "description": "Get list of available cities to be used in import file",
+    "parameters": [
+      {
+        "name": "X-Api-Key",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "The `X-Api-Key` header is used to authenticate with your API key."
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Successful operation",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "description": "Indicates if the request was successful"
+                },
+                "page": {
+                  "type": "integer",
+                  "description": "Current page number"
+                },
+                "pageSize": {
+                  "type": "integer",
+                  "description": "Number of records per page"
+                },
+                "totalRecords": {
+                  "type": "integer",
+                  "description": "Total number of records available"
+                },
+                "totalPages": {
+                  "type": "integer",
+                  "description": "Total number of pages available"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "number",
+                        "description": "system generated key of the city"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "name of city"
+                      },
+                      "province_key": {
+                        "type": "number",
+                        "description": "system generated key of the province"
+                      },
+                      "province_value": {
+                        "type": "string",
+                        "description": "name of province"
+                      },
+                      "region_key": {
+                        "type": "number",
+                        "description": "system generated key of the region"
+                      },
+                      "region_value": {
+                        "type": "string",
+                        "description": "name of region"
+                      },
+                      "country_key": {
+                        "type": "number",
+                        "description": "system generated key of the country"
+                      },
+                      "country_value": {
+                        "type": "string",
+                        "description": "name of country"
+                      }
+                    },
+                    "required": ["key", "value"]
+                  }
+                }
+              },
+              "required": [
+                "success",
+                "page",
+                "pageSize",
+                "totalRecords",
+                "totalPages",
+                "data"
+              ]
+            },
+            "examples": {
+              "sample": {
+                "value": {
+                  "success": true,
+                  "page": 1,
+                  "pageSize": 200,
+                  "totalRecords": 241,
+                  "totalPages": 2,
+                  "data": [
+                    {
+                      "key": 1,
+                      "value": "Amurrio",
+                      "province_key": 211,
+                      "province_value": "Álava",
+                      "region_key": 15,
+                      "region_value": "País Vasco",
+                      "country_key": 1,
+                      "country_value": "spain"
+                    },
+                    {
+                      "key": 2,
+                      "value": "Añana",
+                      "province_key": 211,
+                      "province_value": "Álava",
+                      "region_key": 15,
+                      "region_value": "País Vasco",
+                      "country_key": 1,
+                      "country_value": "spain"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Invalid ID supplied"
+      },
+      "404": {
+        "description": "Import log not found"
+      }
+    }
+  }
+}
