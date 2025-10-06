@@ -1,9 +1,7 @@
 import type { ZudokuConfig } from "zudoku";
 
 const config: ZudokuConfig = {
-  theme: {
-    registryUrl: "https://tweakcn.com/r/themes/cmgahi2d9000c04jo6og9cjdu",
-  },
+  basePath: "/aml-documentation", //for github pages
   site: {
     logo: {
       src: { light: "/aml-icon.png", dark: "/aml-icon.png" },
