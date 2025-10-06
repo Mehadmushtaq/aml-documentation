@@ -14,7 +14,7 @@
 /coverage
 
 # zudoku
-#/dist/ for github pages
+/dist/
 
 # misc
 .DS_Store

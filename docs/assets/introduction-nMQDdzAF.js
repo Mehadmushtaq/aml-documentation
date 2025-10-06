@@ -1,9 +1,0 @@
-import{u as o,j as e}from"./entry.client-D5Adke2I.js";const r="https://dev1.immosurance.net/yiiapp/backend/web",c=[{depth:4,value:"Base URL",id:"base-url"},{depth:3,value:"Authentication",id:"authentication",children:[{depth:5,value:"Obtaining the token",id:"obtaining-the-token"}]}],s={title:"Welcome to AML API documentation",lastModifiedTime:"2025-10-03T07:26:38.482Z"},d="pages/introduction.mdx";function i(t){const n={a:"a",code:"code",h3:"h3",h4:"h4",h5:"h5",img:"img",p:"p",...o(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h4,{id:"base-url",children:"Base URL"}),`
-`,e.jsx(n.p,{children:e.jsx(n.a,{href:"https://dev1.immosurance.net/yiiapp/backend/web",children:"https://dev1.immosurance.net/yiiapp/backend/web"})}),`
-`,e.jsxs(n.p,{children:["Find out all APIs at ",e.jsx(n.code,{inline:"true",children:"API Refernces"})," tab."]}),`
-`,e.jsx(n.h3,{id:"authentication",children:"Authentication"}),`
-`,e.jsxs(n.p,{children:["When working with the API, you need to pass an ",e.jsx(n.code,{inline:"true",children:"API Key"})," in header of all your requests. For example: ",e.jsx(n.code,{inline:"true",children:"X-Api-Key <KEY>"})]}),`
-`,e.jsx(n.h5,{id:"obtaining-the-token",children:"Obtaining the token"}),`
-`,e.jsxs(n.p,{children:["To get your Api Key, open the AML application, and log in. Once you are logged in, navigate to the ",e.jsx(n.code,{inline:"true",children:"My Profile"})," under the Profile icon in the header. From here, you can get your API key."]}),`
-`,e.jsx(n.p,{children:e.jsx(n.img,{src:"/api-key.png",alt:"Alt text",title:"title"})})]})}function h(t={}){const{wrapper:n}={...o(),...t.components};return n?e.jsx(n,{...t,children:e.jsx(i,{...t})}):i(t)}export{d as __filepath,h as default,r as excerpt,s as frontmatter,c as tableOfContents};
-//# sourceMappingURL=introduction-nMQDdzAF.js.map
