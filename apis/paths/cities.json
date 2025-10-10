@@ -12,6 +12,24 @@
           "type": "string"
         },
         "description": "The `X-Api-Key` header is used to authenticate with your API key."
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number"
+        },
+        "description": "Page number to return (pagination is 200) - Default : 1"
+      },
+      {
+        "name": "search",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Key to be searched with"
       }
     ],
     "responses": {
