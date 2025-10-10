@@ -8,12 +8,9 @@
     "dev": "zudoku dev",
     "build": "zudoku build",
     "preview": "zudoku preview",
-    "lint": "eslint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist/aml-documentation"
+    "lint": "eslint"
   },
   "dependencies": {
-    "gh-pages": "^6.3.0",
     "react": ">=19.0.0",
     "react-dom": ">=19.0.0",
     "zudoku": "^0.61.5"

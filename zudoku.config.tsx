@@ -1,7 +1,6 @@
 import type { ZudokuConfig } from "zudoku";
 
 const config: ZudokuConfig = {
-  basePath: "/aml-documentation", //for github pages
   site: {
     logo: {
       src: { light: "/aml-icon.png", dark: "/aml-icon.png" },
