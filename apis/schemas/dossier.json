@@ -1,5 +1,6 @@
 {
   "type": "object",
+  "required": ["date_contract", "property_id", "clients", "dossier_status", "purpose", "sales_price"],
   "properties": {
     "dossier_id": {
       "type": "integer",
@@ -11,6 +12,7 @@
     },
     "date_contract": {
       "type": "string",
+      "default": "current date",
       "description": "Format YYYY-MM-DD or YYYY/MM/DD"
     },
     "clients": {
@@ -19,6 +21,7 @@
     },
     "dossier_status": {
       "type": "string",
+      "default": "open",
       "enum": ["open", "closed", "cancelled"]
     },
     "dossier_description": {
@@ -42,10 +45,12 @@
     },
     "sales_price": {
       "type": "integer",
+      "default": "property price",
       "description": null
     },
     "closing_costs": {
       "type": "integer",
+      "default": "10% of sales_price",
       "description": null
     },
     "own_funds": {
@@ -62,6 +67,7 @@
     },
     "commission_included": {
       "type": "boolean",
+      "default": false,
       "description": null
     },
     "commission_value": {
@@ -74,6 +80,7 @@
     },
     "assigned_to": {
       "type": "integer",
+      "default": "current user",
       "description": "AML user ID/email"
     }
   }

@@ -1,5 +1,14 @@
 {
   "type": "object",
+  "required": [
+    "client_type",
+    "person_type",
+    "client_status",
+    "primary_language",
+    "email",
+    "mobile_country",
+    "mobile_number"
+  ],
   "properties": {
     "client_id": {
       "type": "integer",
@@ -19,63 +28,82 @@
     },
     "client_type_other": {
       "type": "string",
-      "description": "Other client type (if client_type is 'Other')"
+      "description": "Other client type (required if client_type is 'Other')"
     },
-    "type": {
+    "person_type": {
       "type": "string",
       "description": "Person type",
-      "enum": ["legal", "natural"]
+      "enum": [
+        "legal",
+        "natural"
+      ]
     },
     "client_status": {
       "type": "string",
-      "enum": ["Active", "Inactive"]
+      "default": "Active",
+      "enum": [
+        "Active",
+        "Inactive"
+      ]
     },
     "first_name": {
-      "type": "string"
+      "type": "string",
+      "description": "required when person_type is 'natural'"
     },
     "last_name": {
-      "type": "string"
+      "type": "string",
+      "description": "required when person_type is 'natural'"
     },
     "gender": {
       "type": "string",
-      "enum": ["Male", "Female"]
+      "enum": [
+        "Male",
+        "Female"
+      ],
+      "description": "required when person_type is 'natural'"
     },
     "dob": {
       "type": "string",
-      "description": "Date of birth. Format YYYY MM DD or YYYY/MM/DD"
+      "description": "Date of birth. Format YYYY MM DD or YYYY/MM/DD. Required when person_type is 'natural'"
     },
     "place_of_birth": {
       "type": "string"
     },
     "primary_nationality": {
       "type": "string",
-      "description": "Nationality (main).\nSee [Get nationalties](/api/lookups#available-nationalities) for the list of available nationalities.\n"
+      "description": "Nationality (main).\nSee [Get nationalties](/api/lookups#available-nationalities) for the list of available nationalities.\n. Required when person_type is 'natural'"
     },
     "secondary_nationality": {
       "type": "string",
-      "description": "Nationality (additional).\nSee [Get nationalties](/api/lookups#available-nationalities) for the list of available nationalities.\n"
+      "description": "Nationality (additional).\nSee [Get nationalties](/api/lookups#available-nationalities) for the list of available nationalities.\n. Required when person_type is 'natural'"
     },
     "citizenship": {
       "type": "string",
-      "description": "See [Get Countries](/api/lookups#available-countries) for the list of available countries.\n"
+      "description": "See [Get Countries](/api/lookups#available-countries) for the list of available countries.\n. Required when person_type is 'natural'"
     },
     "id_type": {
       "type": "string",
-      "enum": ["EU ID", "Passport"]
+      "enum": [
+        "EU ID",
+        "Passport"
+      ],
+      "description": "required when person_type is 'natural'"
     },
     "id_issuer": {
-      "type": "string"
+      "type": "string",
+      "description": "required when person_type is 'natural'"
     },
     "id_number": {
-      "type": "string"
+      "type": "string",
+      "description": "required when person_type is 'natural'"
     },
     "id_expiration_date": {
       "type": "string",
-      "description": "ID expiration date. Format YYYY MM DD or YYYY/MM/DD"
+      "description": "ID expiration date. Format YYYY MM DD or YYYY/MM/DD. Required when person_type is 'natural'"
     },
     "country_permanent_residence": {
       "type": "string",
-      "description": "Country of permanent residence. See [Get Countries](/api/lookups#available-countries) for the list of available countries."
+      "description": "Country of permanent residence. See [Get Countries](/api/lookups#available-countries) for the list of available countries. Required when person_type is 'natural'"
     },
     "id_permanent_residence": {
       "type": "string",
@@ -96,7 +124,12 @@
     "employment": {
       "type": "string",
       "description": "Employment status",
-      "enum": ["Employer", "Self employed", "Unemployed", "Retired"]
+      "enum": [
+        "Employer",
+        "Self employed",
+        "Unemployed",
+        "Retired"
+      ]
     },
     "tax_id_natural": {
       "type": "string",
@@ -104,12 +137,16 @@
     },
     "tax_id_legal": {
       "type": "string",
-      "description": "Business tax ID"
+      "description": "Business tax ID. Required when person_type is 'legal'"
     },
     "pep": {
       "type": "string",
-      "description": "Politically Exposed Person",
-      "enum": ["Yes", "No", "Unknown"]
+      "description": "Politically Exposed Person. Required when person_type is 'natural'",
+      "enum": [
+        "Yes",
+        "No",
+        "Unknown"
+      ]
     },
     "political_exposure": {
       "type": "string",
@@ -117,8 +154,12 @@
     },
     "ultimate_beneficial_owner": {
       "type": "string",
-      "description": "Ultimate Beneficial Owner",
-      "enum": ["Yes", "No", "Unknown"]
+      "description": "Ultimate Beneficial Owner. Required when person_type is 'natural'",
+      "enum": [
+        "Yes",
+        "No",
+        "Unknown"
+      ]
     },
     "primary_language": {
       "type": "string",
@@ -130,7 +171,11 @@
     },
     "relationship_status": {
       "type": "string",
-      "enum": ["Active", "Frozen", "Inactive"]
+      "enum": [
+        "Active",
+        "Frozen",
+        "Inactive"
+      ]
     },
     "represented_by": {
       "type": "string",
@@ -156,35 +201,41 @@
     },
     "country": {
       "type": "string",
-      "description": "Country of residence. See [Get Countries](/api/lookups#available-countries) for the list of available countries."
+      "description": "Country of residence. See [Get Countries](/api/lookups#available-countries) for the list of available countries. Required when person_type is 'natural'"
     },
     "residence_region": {
       "type": "string",
-      "description": "Region of residence. See [Get Regions](/api/lookups#available-regions) for the list of available regions."
+      "description": "Region of residence. See [Get Regions](/api/lookups#available-regions) for the list of available regions. Required when person_type is 'natural'"
     },
     "residence_province": {
       "type": "string",
-      "description": "Province of residence. See [Get Provinces](/api/lookups#available-provinces) for the list of available provinces."
+      "description": "Province of residence. See [Get Provinces](/api/lookups#available-provinces) for the list of available provinces. Required when person_type is 'natural'"
     },
     "residence_city": {
       "type": "string",
-      "description": "City of residence. See [Get Cities](/api/lookups#available-cities) for the list of available cities."
+      "description": "City of residence. See [Get Cities](/api/lookups#available-cities) for the list of available cities. Required when person_type is 'natural'"
     },
     "residence_postal_code": {
-      "type": "string"
+      "type": "string",
+      "description": "Postal code of residence. Required when person_type is 'natural'"
     },
     "address_road_type": {
       "type": "string",
-      "description": "Street Type",
-      "enum": ["street", "avenue", "road", "alley"]
+      "description": "Street Type. Required when person_type is 'natural'",
+      "enum": [
+        "street",
+        "avenue",
+        "road",
+        "alley"
+      ]
     },
     "address_street": {
       "type": "string",
-      "description": "Street name"
+      "description": "Street name. Required when person_type is 'natural'"
     },
     "address_street_nr": {
       "type": "string",
-      "description": "Street number"
+      "description": "Street number. Required when person_type is 'natural'"
     },
     "address_portal": {
       "type": "string",
@@ -263,6 +314,50 @@
     "main_activity_po_box": {
       "type": "string",
       "description": "P.O. Box - Main activity"
+    },
+    "legal_name": {
+      "type": "string",
+      "description": "required when person_type is 'legal'"
+    },
+    "commercial_name": {
+      "type": "string",
+      "description": "required when person_type is 'legal'"
+    },
+    "legal_form": {
+      "type": "string",
+      "description": "required when person_type is 'legal'"
+    },
+    "registration_country": {
+      "type": "string",
+      "description": "Country of registration. See [Get Countries](/api/lookups#available-countries) for the list of available countries. Required when person_type is 'legal'"
+    },
+    "registration_city": {
+      "type": "string",
+      "description": "City of registration. See [Get Cities](/api/lookups#available-cities) for the list of available cities. Required when person_type is 'legal'"
+    },
+    "statute_incorporation": {
+      "type": "string",
+      "description": "Statute of incorporation. Required when person_type is 'legal'"
+    },
+    "act_incorporation": {
+      "type": "string",
+      "description": "Act of incorporation. Required when person_type is 'legal'"
+    },
+    "unique_id_number": {
+      "type": "string",
+      "description": "Unique identification number. Required when person_type is 'legal'"
+    },
+    "nature_of_activities": {
+      "type": "string",
+      "description": "Description of main activities. Required when person_type is 'legal'"
+    },
+    "factual_controller_name": {
+      "type": "string",
+      "description": "Name of natural person / legal entity. Required when person_type is 'legal'"
+    },
+    "factual_controller_id": {
+      "type": "string",
+      "description": "Identification or title of natural person / legal entity. Required when person_type is 'legal'"
     }
   }
 }

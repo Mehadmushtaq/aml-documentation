@@ -1,5 +1,6 @@
 {
   "type": "object",
+  "required": ["external_reference", "type_one", "currency", "transaction_type", "current_price", "property_state", "country", "region", "province", "city", "postal_code", "address_road_type", "address_street", "address_street_nr", "property_register"],
   "properties": {
     "reference": {
       "type": "integer",
@@ -26,7 +27,8 @@
     },
     "currency": {
       "type": "string",
-      "enum": ["EUR", "GBP", "USD", "AED", "JPY", "TRY", "RON", "IDR"]
+      "default": "EUR",
+      "enum": ["UAH", "TRY", "SEK", "RUB", "RSD", "RON", "PLN", "NOK", "MKD", "MDL", "JPY", "ISK", "IDR", "HUF", "GEL", "GBP", "DKK", "CZK", "CHF", "BYN", "BAM", "AMD", "ALL", "AED", "USD", "EUR"]
     },
     "current_price": {
       "type": "integer"
@@ -104,7 +106,8 @@
       "type": "integer"
     },
     "property_register": {
-      "type": "string"
+      "type": "string",
+      "description": "Municipality"
     },
     "occupation_license": {
       "type": "boolean"
