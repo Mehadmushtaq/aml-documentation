@@ -5,7 +5,7 @@ const config: ZudokuConfig = {
     logo: {
       src: { light: "/aml-icon.png", dark: "/aml-icon.png" },
       alt: "Zudoku",
-      width: "130px",
+      width: "218px",
     }
   },
   navigation: [
